@@ -6,6 +6,7 @@ var path = require('path'),
     haibu = require('../lib/haibu'),
     fs = require('fs'),
     flatiron = require('flatiron'),
+    metadata = require("../package.json"),
     app = flatiron.app;
 
 app.use(flatiron.plugins.cli, {
@@ -83,6 +84,11 @@ app.use(flatiron.plugins.cli, {
       string:true,
       default: '/etc/cozy/pids'
     },
+    version: {
+      alias: 'V',
+      description: 'Display controller version',
+      boolean: false,
+    },
     help: {
       alias: 'h',
       description: 'You\'re looking at it!',
@@ -112,6 +118,11 @@ var start = app.commands.start = function(address, port, env) {
 
   if (app.argv['advanced-replies']) {
     haibu.use(haibu['advanced-replies'], {});
+  }
+
+  if (app.argv['version']){
+    console.log(metadata['version'])
+    process.exit()
   }
 
   haibu.config.set('directories:apps', app.argv.dir+'/apps');
