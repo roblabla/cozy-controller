@@ -161,7 +161,7 @@ var start = app.commands.start = function(address, port, env) {
   haibu.config.set('registry', null) 
   if (fs.existsSync('/etc/cozy/cozy-controller.conf')){
     data = fs.readFileSync('/etc/cozy/cozy-controller.conf', 'utf8')
-    configs = data.split('/n')
+    configs = data.split('\n')
     for (var i = 0, c = configs.length; i < c; i++) {
       config = configs[i]
       if (config.indexOf('npm_registry') != -1) {
