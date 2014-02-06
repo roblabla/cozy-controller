@@ -172,6 +172,14 @@ var start = app.commands.start = function(address, port, env) {
         index = config.indexOf('=')
         haibu.config.set('strict-ssl', config.substring(index + 1)) 
       }
+      if (config.indexOf('timeout-autostart-home') != -1) {
+        index = config.indexOf('=')
+        haibu.config.set('timeout-home', config.substring(index + 1)) 
+      }
+      if (config.indexOf('timeout-autostart-ds') != -1) {
+        index = config.indexOf('=')
+        haibu.config.set('timeout-ds', config.substring(index + 1)) 
+      }
     }
   }
 
