@@ -141,11 +141,7 @@ vows.describe('haibu/drone/drone').addBatch(helpers.requireInit()).addBatch({
               }
 
               that.originalPid = result.pid;
-              haibu.once(['drone', 'stop'], function (_, result) {
-                that.stopPid = result.process.pid;
-              });
-
-              haibu.once(['drone', 'start'], function () {
+              haibu.once(['drone', 'restart'], function () {
                 that.callback.apply(that, arguments);
               })
 
