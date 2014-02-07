@@ -9,6 +9,8 @@ the Cozy use cases, like:
 * configurable application directory
 * configurable application file permissions
 * brunch client build command
+* update application via a pull
+* 
 
 If you want further details, check out the 
 [wiki](https://github.com/mycozycloud/cozy-controller/wiki) or 
@@ -21,6 +23,14 @@ Installation:
 Run following command to see all available actions:
 
     cozy-controller --help
+
+You can specify options in file configuration located at /etc/cozy/cozy-controller.conf
+Options available :
+
+* npm-registry: registry used for npm
+* strict-ssl: option strict-ssl for npm
+* timeout-autostart-home: maximum time between applications starting and home starting during autostart
+* timeout-autostart-ds: time to consider data-system broken during autostart
 
 # About Cozy
 

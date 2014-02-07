@@ -159,18 +159,33 @@ var start = app.commands.start = function(address, port, env) {
     fs.writeFileSync(pidFile, process.pid);
   });
   haibu.config.set('registry', null) 
+  // Read file config
   if (fs.existsSync('/etc/cozy/cozy-controller.conf')){
     data = fs.readFileSync('/etc/cozy/cozy-controller.conf', 'utf8')
     configs = data.split('\n')
     for (var i = 0, c = configs.length; i < c; i++) {
       config = configs[i]
+      // npm-registry is used to specify registry during npm loading 
       if (config.indexOf('npm-registry') != -1) {
         index = config.indexOf('=')
         haibu.config.set('registry', config.substring(index + 1)) 
       }
+      // npm-scrict-ssl is used to add option strict ssl during npm loading
       if (config.indexOf('npm-strict-ssl') != -1) {
         index = config.indexOf('=')
         haibu.config.set('strict-ssl', config.substring(index + 1)) 
+      }
+      // timeout-autostart-home is used to specify timeout between beginning 
+      // of application starting and home starting in autostart
+      if (config.indexOf('timeout-autostart-home') != -1) {
+        index = config.indexOf('=')
+        haibu.config.set('timeout-home', config.substring(index + 1)) 
+      }
+      // timeout-autostart-ds is used to specify timeout to consider 
+      // data-system as broken in autostart
+      if (config.indexOf('timeout-autostart-ds') != -1) {
+        index = config.indexOf('=')
+        haibu.config.set('timeout-ds', config.substring(index + 1)) 
       }
     }
   }
