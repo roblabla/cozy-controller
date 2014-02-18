@@ -13,4 +13,4 @@ before_install:
     - sudo env | grep PATH
     - sudo mkdir -p /usr/local/cozy/apps
 
-script: "sudo npm test"
+script: "TEST_ENV=travis sudo npm test"
