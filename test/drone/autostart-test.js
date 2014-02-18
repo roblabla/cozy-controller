@@ -62,12 +62,12 @@ var startBatch = {
 
 // Some tests can't run in Travis. This is a dirty patch to not run them
 // during the Travis build.
-console.log(process.env.TEST_ENV);
 if(process.env.TEST_ENV !== 'travis') {
   baseTest = startBatch["When using haibu"]["a call to haibu.drone.start()"];
   baseTest["Add application data-system"] = {
     topic: function (server) {
       server.drone.start(dataSystem, this.callback);
+      console.log(process.env.TEST_ENV);
     },
     "should be successfull": function (err, drone) {
       assert.isNull(err);
