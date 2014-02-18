@@ -23,58 +23,6 @@ app.user = 'marak';
 
 haibu.config.set('directories:pid', '/etc/cozy/pids');
 
-var startBatch = {
-  "When using haibu": {
-    "a call to haibu.drone.start()": {
-      topic: function () {
-        haibu.drone.start({
-          host: 'localhost',
-          port: 9100
-        }, this.callback);
-      },
-      "should namespace the server and drone": function (err, server) {
-        assert.isNull(err);
-        assert.isObject(haibu.running);
-        assert.isObject(haibu.running.server);
-        assert.isObject(haibu.running.drone);
-      },
-      "and a resulting server": {
-        topic: function (server) {
-          this.callback(null, server)
-        },
-        "should be running `test` app": function (err, server) {
-          assert.isNotNull(server.drone.apps.test);
-          assert.isNotNull(Object.keys(haibu.running.drone.apps).length, 1);
-          //assert.equal(Object.keys(server.drone.apps.test.drones).length, 1);
-        }
-      },
-      "Add application home": {
-        topic: function (server) {
-          server.drone.start(home, this.callback);
-        },
-        "should be successfull": function (err, drone) {
-          assert.isNull(err);
-        }
-      }
-    }
-  }
-}
-
-// Some tests can't run in Travis. This is a dirty patch to not run them
-// during the Travis build.
-if(process.env.TEST_ENV !== 'travis') {
-  baseTest = startBatch["When using haibu"]["a call to haibu.drone.start()"];
-  baseTest["Add application data-system"] = {
-    topic: function (server) {
-      server.drone.start(dataSystem, this.callback);
-      console.log(process.env.TEST_ENV);
-    },
-    "should be successfull": function (err, drone) {
-      assert.isNull(err);
-    }
-  }
-};
-
 vows.describe('haibu/drone/autostart').addBatch(helpers.requireInit()).addBatch({
   "When using haibu": {
     "a call to haibu.drone.start()": {
@@ -109,9 +57,50 @@ vows.describe('haibu/drone/autostart').addBatch(helpers.requireInit()).addBatch(
       assert.lengthOf(Object.keys(haibu.running), 0);
     }
   }
-}).addBatch(
-  startBatch
-).addBatch({
+}).addBatch({
+  "When using haibu": {
+    "a call to haibu.drone.start()": {
+      topic: function () {
+        haibu.drone.start({
+          host: 'localhost',
+          port: 9100
+        }, this.callback);
+      },
+      "should namespace the server and drone": function (err, server) {
+        assert.isNull(err);
+        assert.isObject(haibu.running);
+        assert.isObject(haibu.running.server);
+        assert.isObject(haibu.running.drone);
+      },
+      "and a resulting server": {
+        topic: function (server) {
+          this.callback(null, server)
+        },
+        "should be running `test` app": function (err, server) {    
+          assert.isNotNull(server.drone.apps.test);
+          assert.isNotNull(Object.keys(haibu.running.drone.apps).length, 1);
+          //assert.equal(Object.keys(server.drone.apps.test.drones).length, 1);
+        }
+      },
+      "Add application home": {
+        topic: function (server) {
+          server.drone.start(home, this.callback);
+        },
+        "should be successfull": function (err, drone) {
+          assert.isNull(err);
+        },
+      },
+      "Add application data-system": {
+        topic: function (server) {
+          server.drone.start(dataSystem, this.callback);
+        },
+        "should be successfull": function (err, drone) {
+          assert.isNull(err);
+        }
+      }
+    }
+  }
+}).addBatch({
   "Stoping server ": {
     topic: function () {
       haibu.drone.stop(false, this.callback);
