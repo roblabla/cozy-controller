@@ -166,7 +166,8 @@ vows.describe('haibu/drone/api').addBatch(
       //}
     //}
   //}
-}).addBatch({
+//}
+).addBatch({
   "When using the drone server": {
     "a request against /drones": {
       "when there are running drones": {
