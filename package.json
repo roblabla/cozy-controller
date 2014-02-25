@@ -2,10 +2,12 @@
   "name": "cozy-controller",
   "description": "Module used to start and stop application in Cozy",
   "version": "1.0.20",
-  "author": "Cozy Cloud",
-  "maintainers": [
-    "poupotte <zoe@cozycloud.cc>",
-    "frankrousseau <frank@cozycloud.cc>"
+  "author": "Cozy Cloud <contact@cozycloud.cc> (http://cozycloud.cc)",
+  "licenses": [
+    {
+      "type": "AGPL v3",
+      "url": "http://www.gnu.org/licenses/agpl-3.0.html"
+    }
   ],
   "repository": {
     "type": "git",
@@ -13,6 +15,11 @@
   },
   "keywords": [
     "cloud computing",
+    "personal",
+    "personal cloud",
+    "pds",
+    "paas",
+    "home server",
     "automated deployment",
     "platform-as-a-service"
   ],
