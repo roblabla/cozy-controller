@@ -76,7 +76,7 @@ vows.describe('haibu/drone/autostart').addBatch(helpers.requireInit()).addBatch(
         topic: function (server) {
           this.callback(null, server)
         },
-        "should be running `test` app": function (err, server) {    
+        "should be running `test` app": function (err, server) {
           assert.isNotNull(server.drone.apps.test);
           assert.isNotNull(Object.keys(haibu.running.drone.apps).length, 1);
           //assert.equal(Object.keys(server.drone.apps.test.drones).length, 1);
@@ -109,31 +109,31 @@ vows.describe('haibu/drone/autostart').addBatch(helpers.requireInit()).addBatch(
       assert.lengthOf(Object.keys(haibu.running), 0);
     }
   }
-}).addBatch({
-  "When using haibu": {
-    "a call to haibu.drone.start()": {
-      topic: function () {
-        haibu.drone.start({
-          host: 'localhost',
-          port: 9100
-        }, this.callback);
-      },
-      "should namespace the server and drone": function (err, server) {
-        assert.isNull(err);
-        assert.isObject(haibu.running);
-        assert.isObject(haibu.running.server);
-        assert.isObject(haibu.running.drone);
-      },
-      "and a resulting server": {
-        topic: function (server) {
-          this.callback(null, server)
-        },
-        "should be running `test` app, home and data-system": function (err, server) {
-          assert.equal(Object.keys(haibu.running.drone.apps).length, 2);
-        }
-      }
-    }
-  }
+//}).addBatch({
+  //"When using haibu": {
+    //"a call to haibu.drone.start()": {
+      //topic: function () {
+        //haibu.drone.start({
+          //host: 'localhost',
+          //port: 9100
+        //}, this.callback);
+      //},
+      //"should namespace the server and drone": function (err, server) {
+        //assert.isNull(err);
+        //assert.isObject(haibu.running);
+        //assert.isObject(haibu.running.server);
+        //assert.isObject(haibu.running.drone);
+      //},
+      //"and a resulting server": {
+        //topic: function (server) {
+          //this.callback(null, server)
+        //},
+        //"should be running `test` app, home and data-system": function (err, server) {
+          //assert.equal(Object.keys(haibu.running.drone.apps).length, 2);
+        //}
+      //}
+    //}
+  //}
 }).addBatch({
   "When the tests are over": {
     topic: function () {
