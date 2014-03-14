@@ -48,7 +48,6 @@ Run following command to see all available actions:
 You can contribute to the Cozy Controller in many ways:
 
 * Pick up an [issue](https://github.com/mycozycloud/cozy-controller/issues?state=open) and solve it.
-* Translate it in [a new language](https://github.com/mycozycloud/cozy-controller/tree/master/client/app/locales).
 * Add support for Python applications.
 * Add support for serverless applications.
 
