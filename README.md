@@ -9,8 +9,20 @@ the Cozy use cases, like:
 
 * configurable application directory
 * configurable application file permissions
-* applications are started in a given order
-* Updating an app without reinstalling all is possible.
+* applications are started in a given order.
+* Update application without loading a full reinstallation process.
+
+You can specify options in file configuration located at:
+
+    /etc/cozy/cozy-controller.conf
+
+Options available :
+
+* npm-registry: registry used for npm
+* strict-ssl: option strict-ssl for npm
+* timeout-autostart-home: maximum time between applications starting and home starting during autostart
+* timeout-autostart-ds: time to consider data-system broken during autostart
+
 
 If you want further details, check out the 
 [wiki](https://github.com/mycozycloud/cozy-controller/wiki) or 
@@ -31,6 +43,7 @@ Run following command to see all available actions:
 
     cozy-controller --help
 
+<<<<<<< HEAD
 ## Contribution
 
 You can contribute to the Cozy Controller in many ways:
@@ -78,6 +91,9 @@ license.
 same private space.  With it, your web apps and your devices can share data
 easily, providing you with a new experience. You can install Cozy on your own
 hardware where no one profiles you. 
+=======
+# About Cozy
+>>>>>>> 4cd0b2790a75feea2b2610fe145bb4b738ed7382
 
 ## Community 
 

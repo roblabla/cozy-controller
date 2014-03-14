@@ -37,136 +37,137 @@ vows.describe('haibu/drone/api').addBatch(
     haibu.config.set('directories:apps', '/usr/local/cozy/apps');
     server = _server;
   })
+//).addBatch({
+  //"When using the drone server": {
+    //"a request against /": {
+      //topic: function () {
+        //var options = {
+          //uri: 'http://localhost:9000/'
+        //};
+
+        //request(options, this.callback);
+      //},
+      //"should respond with 400": function (error, response, body) {
+        //assert.equal(response.statusCode, 400);
+      //}
+    //},
+    //"a request against /version": {
+      //topic: function () {
+        //var options = {
+          //uri: 'http://localhost:9000/version/'
+        //};
+
+        //request(options, this.callback);
+      //},
+      //"should respond with 200": function (error, response, body) {
+        //assert.equal(response.statusCode, 200);
+      //}
+    //},
+    //"a request against /drones/:id/start": {
+      //topic: function () {
+        //var options = {
+          //uri: 'http://localhost:9000/drones/test/start',
+          //method: 'POST',
+          //headers: {
+            //'Content-Type': 'application/json'
+          //},
+          //body: JSON.stringify({
+            //start : app
+          //})
+        //};
+
+        //request(options, this.callback);
+      //},
+      //"should respond with 200": function (error, response, body) {
+        //var result = JSON.parse(body);
+        //assert.equal(response.statusCode, 200);
+        //assert.isNotNull(result.drone);
+        //assert.include(result.drone, 'pid');
+        //assert.include(result.drone, 'port');
+        //assert.include(result.drone, 'host');
+      //},
+      //"a request against the application": helpers.assertTestApp()
+    //}
+  //}
+//}).addBatch({
+  //"When using the drone server": {
+    //"a request against /drones/:id/brunch": {
+      //"when there are running drones": {
+        //topic: function () {
+          //var options = {
+            //uri: 'http://localhost:9000/drones/test/brunch',
+            //method: 'POST',
+            //headers: {
+              //'Content-Type': 'application/json'
+            //},
+            //body: JSON.stringify({
+              //brunch : app
+            //})
+          //};
+
+          //request(options, this.callback);
+        //},
+        //"should respond with 200": function (error, response, body) {
+          //var result = JSON.parse(body);
+          //assert.equal(response.statusCode, 200);
+          //assert.equal(result.brunch, false);
+        //}
+      //}
+    //}
+  //}
+//}).addBatch({
+  //"When using the drone server": {
+    //"a request against /drones/:id/restart": {
+      //"when there are running drones": {
+        //topic: function () {
+          //var options = {
+            //uri: 'http://localhost:9000/drones/test/restart',
+            //method: 'POST',
+            //headers: {
+              //'Content-Type': 'application/json'
+            //},
+            //body: JSON.stringify({
+              //restart : { name: app.name }
+            //})
+          //};
+
+          //request(options, this.callback);
+        //},
+        //"should respond with 200": function (error, response, body) {
+          //assert.equal(response.statusCode, 200);
+        //},
+        //"should respond with a list of drones": function (error, response, body) {
+          //var drones = JSON.parse(body).drones;
+          //assert.isArray(drones);
+          //assert.lengthOf(drones, 1);
+        //}
+      //}
+    //}
+  //}
+//}).addBatch({
+  //"When using the drone server": {
+    //"a request against /drones/:id/update": {
+      //"when there are running drones": {
+        //topic: function () {
+          //var options = {
+            //uri: 'http://localhost:9000/drones/test/update',
+            //method: 'POST',
+            //headers: {
+              //'Content-Type': 'application/json'
+            //},
+            //body: JSON.stringify(app)
+          //};
+
+          //request(options, this.callback);
+        //},
+        //"should respond with 200": function (error, response, body) {
+          //assert.equal(response.statusCode, 200);
+        //}
+      //}
+    //}
+  //}
+//}
 ).addBatch({
-  "When using the drone server": {
-    "a request against /": {
-      topic: function () {
-        var options = {
-          uri: 'http://localhost:9000/'
-        };
-
-        request(options, this.callback);
-      },
-      "should respond with 400": function (error, response, body) {
-        assert.equal(response.statusCode, 400);
-      }
-    },
-    "a request against /version": {
-      topic: function () {
-        var options = {
-          uri: 'http://localhost:9000/version/'
-        };
-
-        request(options, this.callback);
-      },
-      "should respond with 200": function (error, response, body) {
-        assert.equal(response.statusCode, 200);
-      }
-    },
-    "a request against /drones/:id/start": {
-      topic: function () {
-        var options = {
-          uri: 'http://localhost:9000/drones/test/start',
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            start : app
-          })
-        };
-
-        request(options, this.callback);
-      },
-      "should respond with 200": function (error, response, body) {
-        var result = JSON.parse(body);
-        assert.equal(response.statusCode, 200);
-        assert.isNotNull(result.drone);
-        assert.include(result.drone, 'pid');
-        assert.include(result.drone, 'port');
-        assert.include(result.drone, 'host');
-      },
-      "a request against the application": helpers.assertTestApp()
-    }
-  }
-}).addBatch({
-  "When using the drone server": {
-    "a request against /drones/:id/brunch": {
-      "when there are running drones": {
-        topic: function () {
-          var options = {
-            uri: 'http://localhost:9000/drones/test/brunch',
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              brunch : app
-            })
-          };
-
-          request(options, this.callback);
-        },
-        "should respond with 200": function (error, response, body) {
-          var result = JSON.parse(body);
-          assert.equal(response.statusCode, 200);
-          assert.equal(result.brunch, false);
-        }
-      }
-    }
-  }
-}).addBatch({
-  "When using the drone server": {
-    "a request against /drones/:id/restart": {
-      "when there are running drones": {
-        topic: function () {
-          var options = {
-            uri: 'http://localhost:9000/drones/test/restart',
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              restart : { name: app.name }
-            })
-          };
-
-          request(options, this.callback);
-        },
-        "should respond with 200": function (error, response, body) {
-          assert.equal(response.statusCode, 200);
-        },
-        "should respond with a list of drones": function (error, response, body) {
-          var drones = JSON.parse(body).drones;
-          assert.isArray(drones);
-          assert.lengthOf(drones, 1);
-        }
-      }
-    }
-  }
-}).addBatch({
-  "When using the drone server": {
-    "a request against /drones/:id/update": {
-      "when there are running drones": {
-        topic: function () {
-          var options = {
-            uri: 'http://localhost:9000/drones/test/update',
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(app)
-          };
-
-          request(options, this.callback);
-        },
-        "should respond with 200": function (error, response, body) {
-          assert.equal(response.statusCode, 200);
-        }
-      }
-    }
-  }
-}).addBatch({
   "When using the drone server": {
     "a request against /drones": {
       "when there are running drones": {
