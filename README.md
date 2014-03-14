@@ -1,6 +1,7 @@
-# Cozy Controller
+# [Cozy](http://cozy.io) Controller
 
-The Cozy Controller is used to fetch and manage the applications in your Cozy. 
+The Cozy Controller is used to fetch and manage the applications in the Cozy
+Platform. 
 
 The Cozy Controller is a clone of [Haibu](https://github.com/nodejitsu/haibu)
 by [Nodejistu](https://www.nodejitsu.com/) augmented with features required by
@@ -8,32 +9,82 @@ the Cozy use cases, like:
 
 * configurable application directory
 * configurable application file permissions
-* brunch client build command
+* applications are started in a given order
+* Updating an app without reinstalling all is possible.
 
 If you want further details, check out the 
 [wiki](https://github.com/mycozycloud/cozy-controller/wiki) or 
 [Haibu original documentation](https://github.com/nodejitsu/haibu/blob/master/README.md)
 
+
+## Install
+
 Installation:
 
     npm install cozy-controller -g
+
+Start:
+
+    cozy-controller --jh
 
 Run following command to see all available actions:
 
     cozy-controller --help
 
-# About Cozy
+## Contribution
 
-This app is suited to be deployed on the Cozy platform. Cozy is the personal
-server for everyone. It allows you to install your every day web applications
-easily on your server, a single place you control. This means you can manage
-efficiently your data while protecting your privacy without technical skills.
+You can contribute to the Cozy Controller in many ways:
 
-More informations and hosting services on:
-https://cozycloud.cc
+* Pick up an [issue](https://github.com/mycozycloud/cozy-controller/issues?state=open) and solve it.
+* Translate it in [a new language](https://github.com/mycozycloud/cozy-controller/tree/master/client/app/locales).
+* Add support for Python applications.
+* Add support for serverless applications.
 
-# Cozy on IRC
+## Hack
 
-Feel free to check out our IRC channel (#cozycloud on irc.freenode.org) if you
-have any technical issues/inquiries or simply to speak about Cozy cloud in
-general.
+First you have to create two folders:
+
+    mdkir /etc/cozy
+    chown myuser: /etc/cozy
+    mkdir ~/cozy-apps/
+
+Then you can fetch sources and run the controller locally.
+
+    git clone https://github.com/mycozycloud/cozy-controller.git
+    cd cozy-controller
+    chmod +x ./bin/cozy-controller
+    ./bin/cozy-controller --dir ~/cozy-apps
+
+
+## Tests
+
+![Build
+Status](https://travis-ci.org/mycozycloud/cozy-controller.png?branch=master)
+
+To run tests type the following command into the Cozy Home folder:
+
+    npm test
+
+## License
+
+Cozy Controller is developed by Cozy Cloud and distributed under the AGPL v3
+license.
+
+## What is Cozy?
+
+![Cozy Logo](https://raw.github.com/mycozycloud/cozy-setup/gh-pages/assets/images/happycloud.png)
+
+[Cozy](http://cozy.io) is a platform that brings all your web services in the
+same private space.  With it, your web apps and your devices can share data
+easily, providing you with a new experience. You can install Cozy on your own
+hardware where no one profiles you. 
+
+## Community 
+
+You can reach the Cozy Community by:
+
+* Chatting with us on IRC #cozycloud on irc.freenode.net
+* Posting on our [Forum](https://groups.google.com/forum/?fromgroups#!forum/cozy-cloud)
+* Posting issues on the [Github repos](https://github.com/mycozycloud/)
+* Mentioning us on [Twitter](http://twitter.com/mycozycloud)
+
