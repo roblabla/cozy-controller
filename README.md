@@ -43,7 +43,6 @@ Run following command to see all available actions:
 
     cozy-controller --help
 
-<<<<<<< HEAD
 ## Contribution
 
 You can contribute to the Cozy Controller in many ways:
@@ -91,9 +90,6 @@ license.
 same private space.  With it, your web apps and your devices can share data
 easily, providing you with a new experience. You can install Cozy on your own
 hardware where no one profiles you. 
-=======
-# About Cozy
->>>>>>> 4cd0b2790a75feea2b2610fe145bb4b738ed7382
 
 ## Community 
 
