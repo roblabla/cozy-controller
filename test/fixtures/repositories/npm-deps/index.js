@@ -1,6 +1,8 @@
-var express = require('express');
+var express = require('express')
+  , http = require('http');
 
-var app = express.createServer();
+var app = express(); 
+var server = http.createServer(app);
 
 app.get('/', function (req, res) {
   res.send('Hello World');
